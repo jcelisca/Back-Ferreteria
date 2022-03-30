@@ -8,9 +8,8 @@ public class Cliente {
 
     @Id
     private String id;
-    private String nombre;
+    private String nombreCliente;
     private String direccion;
-    private Venta venta;
     private String email;
 
     public String getEmail() {
@@ -26,15 +25,11 @@ public class Cliente {
     }
 
     public String getNombre() {
-        return nombre;
+        return nombreCliente;
     }
 
     public String getDireccion() {
         return direccion;
-    }
-
-    public Venta getVenta() {
-        return venta;
     }
 
     public void setId(String id) {
@@ -42,14 +37,11 @@ public class Cliente {
     }
 
     public void setNombre(String nombre) {
-        this.nombre = nombre;
+        this.nombreCliente = nombre;
     }
 
     public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
 
-    public void setVenta(Venta venta) {
-        this.venta = venta;
-    }
 }

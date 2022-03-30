@@ -13,7 +13,25 @@ public class Venta {
     private String id;
     private List<Inventario> articulos;
     private LocalDate date;
+    private String idCliente;
+    private String idProveedor;
     private String total;
+
+    public String getIdCliente() {
+        return idCliente;
+    }
+
+    public void setIdCliente(String idCliente) {
+        this.idCliente = idCliente;
+    }
+
+    public void setIdProveedor(String idProveedor) {
+        this.idProveedor = idProveedor;
+    }
+
+    public String getIdProveedor() {
+        return idProveedor;
+    }
 
     public String getId() {
         return id;

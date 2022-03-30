@@ -3,8 +3,6 @@ package com.sofka.Ferreteria.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.List;
-
 @Document(collection = "proveedor")
 public class Proveedor {
 
@@ -12,7 +10,15 @@ public class Proveedor {
     private String id;
     private String nombreProveedor;
     private String direccion;
-    private List<Inventario> articulos;
+    private String email;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     public String getId() {
         return id;
@@ -24,10 +30,6 @@ public class Proveedor {
 
     public String getDireccion() {
         return direccion;
-    }
-
-    public List<Inventario> getArticulos() {
-        return articulos;
     }
 
     public void setId(String id) {
@@ -42,7 +44,4 @@ public class Proveedor {
         this.direccion = direccion;
     }
 
-    public void setArticulos(List<Inventario> articulos) {
-        this.articulos = articulos;
-    }
 }

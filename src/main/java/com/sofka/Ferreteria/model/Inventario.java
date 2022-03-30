@@ -9,7 +9,7 @@ public class Inventario {
     @Id
     private String id;
     private String nombreArticulo;
-    private int disponible;
+    private int cantidad;
     private String idProveedor;
 
     public String getId() {
@@ -20,8 +20,8 @@ public class Inventario {
         return nombreArticulo;
     }
 
-    public int getDisponible() {
-        return disponible;
+    public int getCantidad() {
+        return cantidad;
     }
 
     public String getIdProveedor() {
@@ -36,11 +36,12 @@ public class Inventario {
         this.nombreArticulo = nombreArticulo;
     }
 
-    public void setDisponible(int disponible) {
-        this.disponible = disponible;
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
     }
 
     public void setIdProveedor(String idProveedor) {
         this.idProveedor = idProveedor;
     }
+
 }
