@@ -9,27 +9,23 @@ public class Proveedor {
     @Id
     private String id;
     private String nombreProveedor;
-    private String direccion;
-    private String email;
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getId() {
-        return id;
-    }
+    private String celullar;
+    private int documentoIdentidad;
 
     public String getNombreProveedor() {
         return nombreProveedor;
     }
 
-    public String getDireccion() {
-        return direccion;
+    public String getCelullar() {
+        return celullar;
+    }
+
+    public int getDocumentoIdentidad() {
+        return documentoIdentidad;
+    }
+
+    public String getId() {
+        return id;
     }
 
     public void setId(String id) {
@@ -40,8 +36,11 @@ public class Proveedor {
         this.nombreProveedor = nombreProveedor;
     }
 
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
+    public void setCelullar(String celullar) {
+        this.celullar = celullar;
     }
 
+    public void setDocumentoIdentidad(int documentoIdentidad) {
+        this.documentoIdentidad = documentoIdentidad;
+    }
 }

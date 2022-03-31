@@ -27,15 +27,19 @@ public class InventarioService {
         return inventarioRepository.findAll();
     }
 
-    public void update(String id, int cantidad){
-        Inventario inv = new Inventario();
-        inventarioRepository.findById(id)
-                .flatMap(inventario -> {
-                    inv.setId(id);
-                    inv.setIdProveedor(inventario.getIdProveedor());
-                    inv.setNombreArticulo(inventario.getNombreArticulo());
-                    inv.setCantidad(inv.getCantidad()-cantidad);
-                    return save(inv);
+    public Mono<Inventario> update(Inventario inventario){
+        return inventarioRepository.findById(inventario.getId())
+                .flatMap(inventario1 -> {
+                    inventario.setId(inventario1.getId());
+                    inventario.setIdProveedor(inventario1.getIdProveedor());
+                    inventario.setNombreArticulo(inventario1.getNombreArticulo());
+                    if(inventario1.getCantidad()-inventario.getCantidad() < 0){
+                        inventario.setCantidad(0);
+                    }else{
+                        inventario.setCantidad(inventario1.getCantidad()-inventario.getCantidad());
+                    }
+                    inventario.setPrecioUnidad(inventario1.getPrecioUnidad());
+                    return save(inventario);
                 });
     }
 }

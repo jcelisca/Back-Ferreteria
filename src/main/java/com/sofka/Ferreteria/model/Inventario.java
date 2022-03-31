@@ -11,7 +11,11 @@ public class Inventario {
     private String nombreArticulo;
     private int cantidad;
     private String idProveedor;
+    private Double precioUnidad;
 
+    public Double getPrecioUnidad() {
+        return precioUnidad;
+    }
     public String getId() {
         return id;
     }
@@ -44,4 +48,7 @@ public class Inventario {
         this.idProveedor = idProveedor;
     }
 
+    public void setPrecioUnidad(Double precioUnidad) {
+        this.precioUnidad = precioUnidad;
+    }
 }

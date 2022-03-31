@@ -9,39 +9,39 @@ public class Cliente {
     @Id
     private String id;
     private String nombreCliente;
-    private String direccion;
-    private String email;
+    private String celular;
+    private int documentoIdentidad;
 
-    public String getEmail() {
-        return email;
+
+    public String getNombreCliente() {
+        return nombreCliente;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public String getCelular() {
+        return celular;
+    }
+
+    public int getDocumentoIdentidad() {
+        return documentoIdentidad;
     }
 
     public String getId() {
         return id;
     }
 
-    public String getNombre() {
-        return nombreCliente;
-    }
-
-    public String getDireccion() {
-        return direccion;
-    }
-
     public void setId(String id) {
         this.id = id;
     }
 
-    public void setNombre(String nombre) {
-        this.nombreCliente = nombre;
+    public void setNombreCliente(String nombreCliente) {
+        this.nombreCliente = nombreCliente;
     }
 
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
+    public void setCelular(String celular) {
+        this.celular = celular;
     }
 
+    public void setDocumentoIdentidad(int documentoIdentidad) {
+        this.documentoIdentidad = documentoIdentidad;
+    }
 }
