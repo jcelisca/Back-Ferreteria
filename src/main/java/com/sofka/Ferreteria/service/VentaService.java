@@ -22,15 +22,6 @@ public class VentaService {
         return inventario.stream().collect(Collectors.summingDouble(i->i.getPrecioUnidad()*i.getCantidad()));
     }
 
-    /*public Mono<Venta> save(Venta venta) {
-        Flux.fromIterable(venta.getArticulos())
-                .map(inventario -> inventarioService.update(inventario));
-        venta.setDate(LocalDate.now());
-        venta.setTotal(suma(venta.getArticulos()));
-        inventarioService.update(venta.getArticulos().get(0));
-        return ventaRepository.save(venta);
-    }*/
-
     public Mono<Venta> save(Venta venta) {
         venta.setDate(LocalDate.now());
         venta.setTotal(suma(venta.getArticulos()));
@@ -39,5 +30,13 @@ public class VentaService {
 
     public Flux<Venta> findAll(){
         return ventaRepository.findAll();
+    }
+
+    public Mono<Venta> findById(String id){
+        return ventaRepository.findById(id);
+    }
+
+    public Flux<Venta> findByNombreCliente(String nombreCliente){
+        return ventaRepository.findByNombreCliente(nombreCliente);
     }
 }

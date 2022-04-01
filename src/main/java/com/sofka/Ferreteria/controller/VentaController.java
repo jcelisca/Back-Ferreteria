@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 @RestController
 public class VentaController {
@@ -27,5 +28,15 @@ public class VentaController {
     public Flux<Object> save(@RequestBody Venta venta){
         return Flux.fromIterable(venta.getArticulos())
                 .flatMap(inventario ->Flux.merge(inventarioService.update(inventario), ventaService.save(venta)));
+    }
+
+    @GetMapping("/venta/{id}/id")
+    public Mono<Venta> findById(@PathVariable("id") String id){
+        return ventaService.findById(id);
+    }
+
+    @GetMapping("/venta/{nombreCliente}/nombre")
+    public Flux<Venta> findByNombreCliente(@PathVariable("nombreCliente") String nombreCliente){
+        return ventaService.findByNombreCliente(nombreCliente);
     }
 }

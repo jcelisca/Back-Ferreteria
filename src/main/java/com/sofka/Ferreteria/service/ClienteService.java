@@ -31,4 +31,16 @@ public class ClienteService {
         return clienteRepository.findById(id);
     }
 
+    public Flux<Cliente> findByDocumentoIdentidad(String documentoIdentidad){
+        return clienteRepository.findByDocumentoIdentidad(documentoIdentidad);
+    }
+
+    public Mono<Cliente> updateCliente(String id, Cliente cliente) {
+        return clienteRepository.findById(id)
+                .flatMap(cliente1 -> {
+                    cliente.setId(id);
+                    return save(cliente);
+                })
+                .switchIfEmpty(Mono.empty());
+    }
 }

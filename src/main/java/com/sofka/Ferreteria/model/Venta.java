@@ -13,7 +13,6 @@ public class Venta {
     private String id;
     private List<Inventario> articulos;
     private LocalDate date;
-
     private String nombreCliente;
     private String asesor;
     private Double total;
