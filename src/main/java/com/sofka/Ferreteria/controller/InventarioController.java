@@ -1,6 +1,5 @@
 package com.sofka.Ferreteria.controller;
 
-import com.sofka.Ferreteria.model.Cliente;
 import com.sofka.Ferreteria.model.Inventario;
 import com.sofka.Ferreteria.service.InventarioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,5 +25,13 @@ public class InventarioController {
         return inventarioService.save(inventario);
     }
 
-    
+    @GetMapping("/inventario/{id}/id")
+    public Mono<Inventario> findById(@PathVariable("id") String id){
+        return inventarioService.findById(id);
+    }
+
+    @GetMapping("/inventario/{nombreArticulo}/nombre")
+    public Flux<Inventario> findByNombreArticulo(@PathVariable("nombreArticulo") String nombreArticulo){
+        return inventarioService.findByNombreArticulo(nombreArticulo);
+    }
 }

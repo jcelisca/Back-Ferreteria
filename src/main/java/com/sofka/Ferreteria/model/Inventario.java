@@ -1,9 +1,7 @@
 package com.sofka.Ferreteria.model;
 
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.Field;
 
 @Document(collection = "inventario")
 public class Inventario {
@@ -12,7 +10,6 @@ public class Inventario {
     private String id;
     private String nombreArticulo;
     private int cantidad;
-
     private String idProveedor;
     private Double precioUnidad;
 

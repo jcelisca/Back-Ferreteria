@@ -27,6 +27,12 @@ public class InventarioService {
     public Flux<Inventario> findAll(){
         return inventarioRepository.findAll();
     }
+    public Mono<Inventario> findById(String id){
+        return inventarioRepository.findById(id);
+    }
+    public Flux<Inventario> findByNombreArticulo(String nombreArticulo){
+        return inventarioRepository.findByNombreArticulo(nombreArticulo);
+    }
 
     public Mono<Inventario> update(Inventario inventario){
         return inventarioRepository.findById(inventario.getId())
