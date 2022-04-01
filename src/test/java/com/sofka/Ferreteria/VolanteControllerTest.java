@@ -2,7 +2,6 @@ package com.sofka.Ferreteria;
 
 import com.sofka.Ferreteria.controller.VolanteController;
 import com.sofka.Ferreteria.model.Inventario;
-import com.sofka.Ferreteria.model.Venta;
 import com.sofka.Ferreteria.model.Volante;
 import com.sofka.Ferreteria.service.InventarioService;
 import com.sofka.Ferreteria.service.VolanteService;

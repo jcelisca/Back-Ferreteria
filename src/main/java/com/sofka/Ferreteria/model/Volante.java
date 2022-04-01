@@ -14,6 +14,15 @@ public class Volante {
     private List<Inventario> productos;
     private int documentoProveedor;
     private LocalDate fecha;
+    private String nombreProveedor;
+
+    public String getNombreProveedor() {
+        return nombreProveedor;
+    }
+
+    public void setNombreProveedor(String nombreProveedor) {
+        this.nombreProveedor = nombreProveedor;
+    }
 
     public String getId() {
         return id;
