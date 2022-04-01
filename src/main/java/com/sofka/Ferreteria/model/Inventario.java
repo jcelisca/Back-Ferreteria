@@ -12,7 +12,6 @@ public class Inventario {
     private String id;
     private String nombreArticulo;
     private int cantidad;
-    private String idProveedor;
     private Double precioUnidad;
 
     public Double getPrecioUnidad() {
@@ -30,9 +29,6 @@ public class Inventario {
         return cantidad;
     }
 
-    public String getIdProveedor() {
-        return idProveedor;
-    }
 
     public void setId(String id) {
         this.id = id;
@@ -44,10 +40,6 @@ public class Inventario {
 
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
-    }
-
-    public void setIdProveedor(String idProveedor) {
-        this.idProveedor = idProveedor;
     }
 
     public void setPrecioUnidad(Double precioUnidad) {
