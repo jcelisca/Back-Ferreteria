@@ -13,15 +13,17 @@ public class Venta {
     private String id;
     private List<Inventario> articulos;
     private LocalDate date;
-    private String idCliente;
+
+    private String nombreCliente;
+    private String asesor;
     private Double total;
 
-    public String getIdCliente() {
-        return idCliente;
+    public String getNombreCliente() {
+        return nombreCliente;
     }
 
-    public void setIdCliente(String idCliente) {
-        this.idCliente = idCliente;
+    public void setNombreCliente(String nombreCliente) {
+        this.nombreCliente = nombreCliente;
     }
 
     public String getId() {
@@ -54,5 +56,13 @@ public class Venta {
 
     public void setTotal(Double total) {
         this.total = total;
+    }
+
+    public String getAsesor() {
+        return asesor;
+    }
+
+    public void setAsesor(String asesor) {
+        this.asesor = asesor;
     }
 }

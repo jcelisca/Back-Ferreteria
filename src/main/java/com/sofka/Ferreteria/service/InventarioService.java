@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+
 @Service
 public class InventarioService {
 
@@ -30,16 +31,13 @@ public class InventarioService {
     public Mono<Inventario> update(Inventario inventario){
         return inventarioRepository.findById(inventario.getId())
                 .flatMap(inventario1 -> {
-                    inventario.setId(inventario1.getId());
-                    inventario.setIdProveedor(inventario1.getIdProveedor());
-                    inventario.setNombreArticulo(inventario1.getNombreArticulo());
                     if(inventario1.getCantidad()-inventario.getCantidad() < 0){
                         inventario.setCantidad(0);
                     }else{
                         inventario.setCantidad(inventario1.getCantidad()-inventario.getCantidad());
                     }
-                    inventario.setPrecioUnidad(inventario1.getPrecioUnidad());
                     return save(inventario);
                 });
     }
+
 }

@@ -27,4 +27,8 @@ public class ClienteService {
         return clienteRepository.findAll();
     }
 
+    public Mono<Cliente> findById(String id){
+        return clienteRepository.findById(id);
+    }
+
 }

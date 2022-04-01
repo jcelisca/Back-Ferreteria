@@ -18,19 +18,20 @@ public class VentaService {
     @Autowired
     private VentaRepository ventaRepository;
 
-    @Autowired
-    private InventarioService inventarioService;
-
     public Double suma(List<Inventario> inventario){
         return inventario.stream().collect(Collectors.summingDouble(i->i.getPrecioUnidad()*i.getCantidad()));
     }
 
-    public Mono<Venta> save(Venta venta) {
+    /*public Mono<Venta> save(Venta venta) {
         Flux.fromIterable(venta.getArticulos())
-                .flatMap(inventario ->{
-                    inventarioService.update(inventario);
-                    return Mono.empty();
-                });
+                .map(inventario -> inventarioService.update(inventario));
+        venta.setDate(LocalDate.now());
+        venta.setTotal(suma(venta.getArticulos()));
+        inventarioService.update(venta.getArticulos().get(0));
+        return ventaRepository.save(venta);
+    }*/
+
+    public Mono<Venta> save(Venta venta) {
         venta.setDate(LocalDate.now());
         venta.setTotal(suma(venta.getArticulos()));
         return ventaRepository.save(venta);
