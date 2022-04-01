@@ -3,6 +3,8 @@ package com.sofka.Ferreteria.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.Objects;
+
 @Document(collection = "inventario")
 public class Inventario {
 
@@ -50,5 +52,18 @@ public class Inventario {
 
     public void setPrecioUnidad(Double precioUnidad) {
         this.precioUnidad = precioUnidad;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Inventario that = (Inventario) o;
+        return id.equals(that.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }

@@ -27,7 +27,7 @@ public class VentaController {
     @ResponseStatus(HttpStatus.CREATED)
     public Flux<Object> save(@RequestBody Venta venta){
         return Flux.fromIterable(venta.getArticulos())
-                .flatMap(inventario ->Flux.merge(inventarioService.update(inventario), ventaService.save(venta)));
+                .flatMap(inventario ->Flux.merge(ventaService.save(venta),inventarioService.update(inventario)));
     }
 
     @GetMapping("/venta/{id}/id")

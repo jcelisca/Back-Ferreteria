@@ -25,7 +25,14 @@ public class VolanteController {
 
     @PostMapping("/volante")
     @ResponseStatus(HttpStatus.CREATED)
-    public Flux<Object> saveVolante(@RequestBody Volante volante){
+    public Flux<Object> nuevoVolante(@RequestBody Volante volante){
+        return Flux.fromIterable(volante.getProductos())
+                .flatMap(inventario ->Flux.merge(inventarioService.save(inventario), volanteService.save(volante)));
+    }
+
+    @PostMapping("/volante/agregar")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Flux<Object> agregarInventario(@RequestBody Volante volante){
         return Flux.fromIterable(volante.getProductos())
                 .flatMap(inventario ->Flux.merge(inventarioService.agregarInventario(inventario), volanteService.save(volante)));
     }
