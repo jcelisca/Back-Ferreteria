@@ -9,15 +9,15 @@ public class Proveedor {
     @Id
     private String id;
     private String nombreProveedor;
-    private String celullar;
+    private String celular;
     private int documentoIdentidad;
 
     public String getNombreProveedor() {
         return nombreProveedor;
     }
 
-    public String getCelullar() {
-        return celullar;
+    public String getCelular() {
+        return celular;
     }
 
     public int getDocumentoIdentidad() {
@@ -36,8 +36,8 @@ public class Proveedor {
         this.nombreProveedor = nombreProveedor;
     }
 
-    public void setCelullar(String celullar) {
-        this.celullar = celullar;
+    public void setCelular(String celular) {
+        this.celular = celular;
     }
 
     public void setDocumentoIdentidad(int documentoIdentidad) {

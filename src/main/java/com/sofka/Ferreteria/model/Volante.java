@@ -12,7 +12,7 @@ public class Volante {
     @Id
     private String id;
     private List<Inventario> productos;
-    private String documentoProveedor;
+    private int documentoProveedor;
     private LocalDate fecha;
 
     public String getId() {
@@ -23,7 +23,7 @@ public class Volante {
         return productos;
     }
 
-    public String getDocumentoProveedor() {
+    public int getDocumentoProveedor() {
         return documentoProveedor;
     }
 
@@ -39,7 +39,7 @@ public class Volante {
         this.productos = productos;
     }
 
-    public void setDocumentoProveedor(String documentoProveedor) {
+    public void setDocumentoProveedor(int documentoProveedor) {
         this.documentoProveedor = documentoProveedor;
     }
 

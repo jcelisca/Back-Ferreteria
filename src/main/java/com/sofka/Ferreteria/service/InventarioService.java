@@ -40,4 +40,14 @@ public class InventarioService {
                 });
     }
 
+    public Mono<Inventario> agregarInventario(Inventario inventario) {
+        if (!inventario.getId().isEmpty()) {
+            return inventarioRepository.findById(inventario.getId())
+                    .flatMap(inventario1 -> {
+                        inventario.setCantidad(inventario1.getCantidad() + inventario.getCantidad());
+                        return save(inventario);
+                    });
+        }
+        return save(inventario);
+    }
 }

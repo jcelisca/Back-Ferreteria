@@ -44,7 +44,7 @@ public class ClienteController {
     }
 
     @PutMapping("/cliente/{id}/update")
-    private Mono<ResponseEntity<Cliente>> update(@PathVariable("id") String id, @RequestBody Cliente cliente) {
+    private Mono<ResponseEntity<Cliente>> updateCliente(@PathVariable("id") String id, @RequestBody Cliente cliente) {
         return clienteService.updateCliente(id, cliente)
                 .flatMap(cliente1 -> Mono.just(ResponseEntity.ok(cliente1)))
                 .switchIfEmpty(Mono.just(ResponseEntity.notFound().build()));
